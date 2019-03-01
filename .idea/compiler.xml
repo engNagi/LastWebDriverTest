@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="WebDriverTest" options="--add-exports=java.base/sun.text.normalizer=ALL-UNNAMED" />
+      <module name="WebDriverTest" options="" />
     </option>
   </component>
 </project>

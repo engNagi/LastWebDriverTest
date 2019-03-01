@@ -17,14 +17,14 @@ import static org.testng.Assert.fail;
 
 public class DataProviderWithExcel_addUser {
     private WebDriver driver;
-    public String baseUrl = "http://localhost/wordpress";
+    public String baseUrl = "http://localhost:8888/wordpress/";
     public WebElement webtable;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
     @DataProvider(name = "addUser")
     public static Object[][] addUser() {
-        Object[][] testObjArray_addUser = ExcelUtils.getTableArray("C:\\Users\\ZTE_testing\\IdeaProjects\\WebDriverTest\\AddUserTCs.xlsx","User");
+        Object[][] testObjArray_addUser = ExcelUtils.getTableArray("/Users/mohamednagi/IdeaProjects/WebDriverTest/AddUserTCs.xlsx","User");
         return (testObjArray_addUser);
     }
 
@@ -46,8 +46,6 @@ public class DataProviderWithExcel_addUser {
            //System.setProperty("webdriver.opera.driver", "C:\\Users\\ZTE_testing\\AppData\\Local\\Programs\\Opera\\launcher.exe" );
             WebDriverManager.operadriver().setup();
             driver = new OperaDriver();
-
-
         }
 
         else {
@@ -65,12 +63,12 @@ public class DataProviderWithExcel_addUser {
     public void A001_loginAdmin() {
         String sUsername = "admin";
         String sPassword = "!NCS2019";
-        driver.findElement(By.id("user_login")).sendKeys(sUsername);
         try{
             Thread.sleep(2000);
         }
         catch(InterruptedException ie){
         }
+        driver.findElement(By.id("user_login")).sendKeys(sUsername);
         //driver.findElement(By.id("user_pass")).clear();
         driver.findElement(By.id("user_pass")).sendKeys(sPassword);
         driver.findElement(By.id("wp-submit")).click();
@@ -152,42 +150,7 @@ public class DataProviderWithExcel_addUser {
     @AfterClass(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
-        String verificationErrorString = verificationErrors.toString();
-        if (!"".equals(verificationErrorString)) {
-            fail(verificationErrorString);
         }
-    }
 
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-    private String closeAlertAndGetItsText() {
-        try {
-            Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert = true;
-        }
-    }
 }

@@ -22,7 +22,7 @@ public class DataProviderwithExcel_deleteUser {
     private static WebDriver driver;
     WebDriverWait wait;
 
-    public String baseUrl = "http://localhost/wordpress/";
+    public String baseUrl = "http://localhost:8888/wordpress/";
     public WebElement webtable;
 
     @DataProvider(name = "Admin")
@@ -34,7 +34,7 @@ public class DataProviderwithExcel_deleteUser {
     }
     @DataProvider(name = "delteUser")
     public static Object[][] deleteUser() {
-        Object[][] testObjArray_deleteUser = ExcelUtils.getTableArray("C:\\Users\\ZTE_testing\\IdeaProjects\\WebDriverTest\\AddUserTCs.xlsx","deleteUser");
+        Object[][] testObjArray_deleteUser = ExcelUtils.getTableArray("/Users/mohamednagi/IdeaProjects/WebDriverTest/AddUserTCs.xlsx","deleteUser");
         return (testObjArray_deleteUser);
     }
 
@@ -71,14 +71,13 @@ public class DataProviderwithExcel_deleteUser {
     public void  A001_loginAdmin(String sTC, String sUsername, String sPassword) {
 
         System.out.printf("\n Testcase: %s Login user as : %s  Passwd: %s \n",sTC, sUsername, sPassword);
-        //driver.findElement(By.id("user_login")).clear();
-        driver.findElement(By.id("user_login")).sendKeys(sUsername);
         try{
             Thread.sleep(2000);
         }
         catch(InterruptedException ie){
         }
-        //driver.findElement(By.id("user_pass")).clear();
+        driver.findElement(By.id("user_login")).sendKeys(sUsername);
+
         driver.findElement(By.id("user_pass")).sendKeys(sPassword);
         driver.findElement(By.id("wp-submit")).click();
         WebDriverWait wait = new WebDriverWait(driver,2);
@@ -95,7 +94,7 @@ public class DataProviderwithExcel_deleteUser {
         //driver.findElement(By.xpath("//li[@id='menu-users']/a/div[3]")).click();
         //driver.findElement(By.className("page-title-action")).click();
 
-        driver.get("http://localhost/wordpress/wp-admin/users.php?s=nase&action=-1&new_role&paged=1&action2=-1&new_role2");
+        driver.get("http://localhost:8888/wordpress/wp-admin/users.php");
         driver.findElement(By.id("user-search-input")).clear();
         driver.findElement(By.id("user-search-input")).sendKeys(suserName);
         //driver.findElement(By.id("user-search-input")).sendKeys(Keys.ENTER);
@@ -212,12 +211,6 @@ public class DataProviderwithExcel_deleteUser {
         //System.out.printf("Abmeldung: %n  %s", driver.findElement(By.id("login")).getText());
 
     }
-
- /*   @AfterTest
-    public void afterTest()
-    {
-        driver.quit();
-    }*/
 
     @AfterClass(alwaysRun = true)
     public void tearDown()  {

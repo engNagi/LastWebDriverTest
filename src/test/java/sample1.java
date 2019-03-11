@@ -21,7 +21,7 @@ public class sample1 {
     public void beforeTest() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("http://localhost:8888/wordpress/");
+        driver.get("http://localhost/wordpress/");
         driver.findElement(By.linkText("Anmelden")).click();
     }
 

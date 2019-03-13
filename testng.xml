@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/mohamednagi/IdeaProjects/WebDriverTest/src/test/java/sample1.java">
+        <classes>
+            <class name="sample1">
+                <methods>
+                    <include name="beforeTest"/>
+                    <include name="A001_loginAdmin"/>
+                    <include name="A002_addUser"/>
+                    <include name="A003_logoutAdmin"/>
+                    <include name="afterTest"/>
+            </methods>
+        </class>
+    </classes>
+    </test>
+</suite>

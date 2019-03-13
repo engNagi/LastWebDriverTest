@@ -124,6 +124,7 @@ public class DataProviderwithExcel_deleteUser {
                 Assert.assertEquals(driver.findElement(By.id("message")).getText().contains("Benutzer gelöscht"), true);
 
             }
+            
         }
         else {
             Assert.assertTrue(b, "User" + suserName + " could not be found. ");

@@ -23,7 +23,7 @@ public class DataProviderWithExcel_modifyUser {
 
     @DataProvider(name = "userLogin")
     public static Object[][] userLogin() {
-        Object[][] testObjArray = ExcelUtils.getTableArray("/Users/mohamednagi/IdeaProjects/WebDriverTest/AddUserTCs.xlsx","UserLogin");
+        Object[][] testObjArray = ExcelUtils.getTableArray("Resources/AddUserTCs.xlsx","UserLogin");
         return (testObjArray);
     }
 

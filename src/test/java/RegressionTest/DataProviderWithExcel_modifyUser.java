@@ -29,13 +29,13 @@ public class DataProviderWithExcel_modifyUser {
 
     @DataProvider(name = "addUser")
     public static Object[][] addUser() {
-        Object[][] testObjArray_addUser = ExcelUtils.getTableArray("/Users/mohamednagi/IdeaProjects/WebDriverTest/AddUserTCs.xlsx","User");
+        Object[][] testObjArray_addUser = ExcelUtils.getTableArray("Resources/AddUserTCs.xlsx.xlsx","User");
         return (testObjArray_addUser);
     }
 
     @DataProvider(name = "changeRoleforUser")
     public static Object[][] changeRoleUser() {
-        Object[][] testObjArray_modUser = ExcelUtils.getTableArray("/Users/mohamednagi/IdeaProjects/WebDriverTest/AddUserTCs.xlsx","modifyUser");
+        Object[][] testObjArray_modUser = ExcelUtils.getTableArray("Resources/AddUserTCs.xlsx","modifyUser");
         return (testObjArray_modUser);
     }
 
